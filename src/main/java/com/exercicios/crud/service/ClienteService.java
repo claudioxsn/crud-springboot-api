@@ -1,7 +1,5 @@
 package com.exercicios.crud.service;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,4 +22,18 @@ public class ClienteService {
 		Pageable paginate = PageRequest.of(page, 3);
 		return clienteRepository.findAll(paginate);
 	}
+
+	public Cliente update(Cliente cliente) {
+		return clienteRepository.save(cliente);
+	}
+
+	public void delete(int id) {
+		
+		clienteRepository.deleteById(id);
+	}
+	
+	public Iterable<Cliente> findByNome(String nome){ 
+		return clienteRepository.findByNomeContainingIgnoreCase(nome); 
+	}
+
 }

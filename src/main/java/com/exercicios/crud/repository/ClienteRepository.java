@@ -6,4 +6,6 @@ import com.exercicios.crud.model.Cliente;
 
 public interface ClienteRepository extends PagingAndSortingRepository<Cliente, Integer>{
 	
+	public Iterable<Cliente> findByNomeContainingIgnoreCase(String nome); 
+	
 }
